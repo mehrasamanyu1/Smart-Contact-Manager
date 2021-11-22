@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Login - Smart Contact Manager</title>
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="card">
+				<div class="card-body mt-5">
+					<div class="container text-center">
+						<img style="height:200px;width:200px;" class="picture" src="#" th:src="@{'/img/contact-logo.png'}">
+					</div>
+				<h1 class="text-center mt-3 text-secondary fst-italic fw-light">
+					Start Adding your contacts on cloud...
+				</h1>
+				
+				<div class="container text-center">
+					<a th:href="@{/user/add-contact}" class="btn btn-primary text-uppercase mt-4">Add New Contact</a>
+				</div>			
+				<hr>
+				<h3 class="my-3"> Donate Us</h3>
+				<input id="payment_field" type="text" class="form-control my-2" placeholder="Enter amount">
+				
+				<div class="container text-center">
+					<button onclick="paymentStart()" class="btn btn-success btn-lg mt-2">Checkout</button>
+				</div>
+				
+				</div>
+			</div>
+		</div>
+		
+		<script>
+		$(document).ready(()=>{
+			$(".item").removeClass("active");
+			$("#home-link").addClass("active");
+		});
+		</script>
+		
+	</section>
+</body>
+</html>

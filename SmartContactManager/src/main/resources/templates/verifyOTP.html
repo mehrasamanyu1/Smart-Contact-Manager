@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>About - Smart Contact Manager</title>
+</head>
+<body>
+	<section>
+		<div id="login">
+			<div class="container">
+				<div id="login-row"
+					class="row justify-content-center align-items-center">
+					<div id="login-column" class="col-md-6">
+						<div id="login-box" style="height: 220px;" class="col-md-12">
+
+							<!-- Email Form -->
+							<div class="alert alert-success mt-3" role="alert"
+								style="width: 97%; margin-left: 10px !important;">
+								We have	sent OTP to your email...
+								</div>
+
+							<!-- message box -->
+							<div th:if="${session.message}" class="container">
+								<div class="alert alert-danger my-2 text-center" role="alert">
+									<span th:text="${session.message}"></span>
+								</div>
+
+								<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+							</div>
+
+
+							<form method="post" th:action="@{/verifyOTP}">
+
+								<div class="form-group">
+
+									<input name="otp" required type="number"
+										placeholder="Enter OTP here" class="form-control mt-2"
+										style="width: 97%; margin-left: 10px; margin-top: 20px !important;">
+								</div>
+
+								<div class="container text-center mt-3">
+									<button class="btn btn-success">Verify OTP</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
